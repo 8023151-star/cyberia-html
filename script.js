@@ -50,7 +50,7 @@ document.querySelector('#download-link').addEventListener('click', () => {
 
 function compareVersions(left, right) {
   const parse = version => {
-    if (!/^\d+\.\d+\.\d+$/.test(version)) throw new Error('GitHub has an invalid version.txt. Use a number like 0.0.2.');
+    if (!/^\d+\.\d+\.\d+$/.test(version)) throw new Error('Invalid version number. Use a number like 0.0.2.');
     return version.split('.').map(Number);
   };
   const a = parse(left);
@@ -67,11 +67,14 @@ checkButton.addEventListener('click', async () => {
   versionResult.textContent = 'Connecting to GitHub…';
   checkButton.disabled = true;
   try {
-    const response = await fetch('https://api.github.com/repos/8023151-star/cyberia-html/contents/version.txt?ref=main', { cache: 'no-store' });
-    if (!response.ok) throw new Error(response.status === 404 ? 'The GitHub version.txt file was not found.' : `GitHub returned ${response.status}.`);
+    const response = await fetch('https://api.github.com/repos/8023151-star/cyberia-html/contents/version.js?ref=main', { cache: 'no-store' });
+    if (!response.ok) throw new Error(response.status === 404 ? 'The GitHub version.js file was not found. Upload the site to GitHub first.' : `GitHub returned ${response.status}.`);
     const file = await response.json();
     if (file.encoding !== 'base64' || !file.content) throw new Error('GitHub did not return the version file.');
-    const latest = atob(file.content.replace(/\s/g, '')).trim();
+    const source = atob(file.content.replace(/\s/g, ''));
+    const match = source.match(/^\s*window\.CYBERIA_VERSION\s*=\s*['"](\d+\.\d+\.\d+)['"]\s*;?\s*$/m);
+    if (!match) throw new Error('GitHub version.js needs a line like window.CYBERIA_VERSION = "0.0.2";');
+    const latest = match[1];
     const comparison = compareVersions(latest, currentVersion);
     availableVersion.textContent = latest;
     versionResult.textContent = comparison > 0
