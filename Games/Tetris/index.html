@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000c2c">
+  <title>Tetris — Cyberia</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="js/tetris.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="back-link" href="../../index.html"><span aria-hidden="true">←</span> All G4mes</a>
+      <a class="brand" href="../../index.html"><span class="brand-icon" aria-hidden="true">✳</span> CYBERIA<span>.</span></a>
+      <button class="sound-button" id="music-button" type="button" aria-pressed="true" title="Toggle music (M)"><span aria-hidden="true">♫</span> Music on</button>
+    </header>
+
+    <audio id="theme-audio" src="sound/Tetris%20Theme%20Normal.mp3" preload="none" loop></audio>
+    <main class="game-layout">
+      <div class="intro"><span class="eyebrow">THE CLASSICS / 01</span><h1>TETRIS<span>.</span></h1><p>Stack smart. Clear lines. Keep it going.</p>
+        <div class="audio-settings"><div class="theme-picker"><label for="theme-select">Soundtrack</label><select id="theme-select" aria-label="Tetris music theme">
+          <option value="sound/Tetris%20Theme%20Normal.mp3">Tetris Theme Normal.mp3</option>
+          <option value="sound/Tetris%2099%20Theme.mp3">Tetris 99 Theme.mp3</option>
+          <option value="sound/Tetris%20Theme%20Piano%20Version.mp3">Tetris Theme Piano Version.mp3</option>
+        </select></div><div class="volume-control"><label for="volume-slider">Volume</label><input id="volume-slider" type="range" min="0" max="100" value="10" aria-label="G4me volume"><output id="volume-value" for="volume-slider">10%</output></div></div>
+      </div>
+      <div class="game-area">
+        <aside class="left-panel" aria-label="G4me stats">
+          <div class="stat panel"><span class="panel-label">SCORE</span><strong id="score">0</strong></div>
+          <div class="stat panel"><span class="panel-label">BEST</span><strong id="best">0</strong></div>
+          <div class="stat panel"><span class="panel-label">LINES</span><strong id="lines">0</strong></div>
+          <div class="stat panel"><span class="panel-label">LEVEL</span><strong id="level">1</strong></div>
+          <div class="preview panel"><span class="panel-label">HOLD <small>C / SHIFT</small></span><canvas id="hold-canvas" width="120" height="100" aria-label="Held piece"></canvas></div>
+        </aside>
+
+        <section class="board-wrap" aria-label="Tetris G4me">
+          <div class="board-frame">
+            <canvas id="board" width="300" height="600" aria-label="Tetris playfield"></canvas>
+            <div class="overlay" id="overlay"><div class="overlay-content"><span class="overlay-icon" aria-hidden="true">▦</span><h2 id="overlay-title">Ready to play?</h2><p id="overlay-text">Clear lines, chase your best, and have fun.</p><button id="start-button" type="button">Start G4me <span aria-hidden="true">↗</span></button><small>Or press Enter</small></div></div>
+          </div>
+          <div class="board-actions"><button id="pause-button" type="button" disabled>Pause <kbd>P</kbd></button><button id="restart-button" type="button">Restart <span aria-hidden="true">↻</span></button></div>
+        </section>
+
+        <aside class="right-panel">
+          <div class="preview panel"><span class="panel-label">NEXT UP</span><canvas id="next-canvas" width="120" height="120" aria-label="Next piece"></canvas></div>
+          <div class="controls panel"><span class="panel-label">CONTROLS</span><div><span>Move</span><span><kbd>←</kbd> <kbd>→</kbd></span></div><div><span>Rotate</span><span><kbd>↑</kbd> <kbd>X</kbd> <kbd>Z</kbd></span></div><div><span>Soft drop</span><kbd>↓</kbd></div><div><span>Hard drop</span><kbd>SPACE</kbd></div><div><span>Hold</span><kbd>C</kbd></div><div><span>Pause</span><kbd>P</kbd></div></div>
+          <div class="hint"><span aria-hidden="true">✦</span> The outline shows exactly where your piece will land.</div>
+        </aside>
+      </div>
+      <div class="touch-controls" aria-label="Touch controls"><button type="button" data-action="left" aria-label="Move left">←</button><button type="button" data-action="right" aria-label="Move right">→</button><button type="button" data-action="rotate" aria-label="Rotate">↻</button><button type="button" data-action="down" aria-label="Soft drop">↓</button><button class="wide" type="button" data-action="drop">DROP</button><button type="button" data-action="hold" aria-label="Hold piece">HOLD</button></div>
+    </main>
+    <footer><span>CYBERIA / TETRIS</span><span>Built for one more round.</span></footer>
+  </div>
+</body>
+</html>

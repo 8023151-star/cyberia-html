@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#02133e">
+  <link rel="icon" type="image/png" href="Assets/Logo%20Icons/Cyberia%20Blue.png">
+  <title>Cyberia — G4mes</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="version.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="welcome-open">
+  <section class="welcome" id="welcome" aria-labelledby="welcome-title">
+    <div class="welcome-card">
+      <div class="welcome-brand"><img src="Assets/Logo%20Icons/Cyberia%20Blue.png" alt=""><span>CYBERIA</span></div>
+      <span class="eyebrow">YOUR NEXT BREAK STARTS HERE</span>
+      <h1 id="welcome-title">Welcome to Cyberia.</h1>
+      <p>Pick where you want to go.</p>
+      <div class="welcome-actions">
+        <button class="welcome-button primary" id="enter-site" type="button">Go to site <span aria-hidden="true">→</span></button>
+        <button class="welcome-button" id="check-updates" type="button">Check for updates <span aria-hidden="true">↗</span></button>
+        <a class="welcome-button" id="download-link" href="https://github.com/8023151-star/cyberia-html" target="_blank" rel="noopener noreferrer">Download / instructions <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="version-panel" id="version-panel" hidden>
+        <div><span>Installed version</span><strong id="installed-version">Loading…</strong></div>
+        <div><span>GitHub version</span><strong id="available-version">Not checked</strong></div>
+        <p id="version-result" role="status" aria-live="polite"></p>
+      </div>
+      <div class="download-panel" id="download-panel" hidden>
+        <strong>How to update</strong>
+        <ol><li>On GitHub, find the green <b>Code</b> button shown below. Click it, then choose <b>Download ZIP</b>.<a class="code-preview-link" href="https://github.com/8023151-star/cyberia-html" target="_blank" rel="noopener noreferrer" aria-label="Open Cyberia on GitHub to find the Code button"><img src="Assets/Code.png" alt="GitHub's green Code button" width="107" height="36"></a></li><li>Extract the ZIP on your Chromebook.</li><li>Open the extracted folder and double-click <b>index.html</b>.</li></ol>
+        <p>Keep the whole folder together. You can delete your older copy after confirming the new one opens.</p>
+      </div>
+      <small class="welcome-footnote">The site opens offline. Checking GitHub needs internet.</small>
+    </div>
+  </section>
+  <div class="shell" id="site" inert>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Cyberia home"><img class="brand-icon" src="Assets/Logo%20Icons/Cyberia%20Blue.png" alt=""><span>CYBERIA<span class="brand-dot">.</span></span></a>
+      <nav aria-label="Main navigation"><a href="#games">G4mes</a><a href="#about">About</a></nav>
+      <span class="online"><i></i> Ready to play</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="hero-logo" role="img" aria-label="Cyberia"><img src="Assets/Logo%20Icons/Cyberia%20Blue.png" alt=""><span>CYBERIA</span></div>
+          <span class="eyebrow">✦ &nbsp; YOUR NEXT BREAK STARTS HERE</span>
+          <h1>Take a break.<br><em>Find your next pick.</em></h1>
+          <p>A little corner of the internet for quick G4mes, long G4mes, and everything in between. Pick one and jump in.</p>
+          <div class="hero-actions"><a class="button" href="#games">Explore G4mes <span>↗</span></a><small>✦ &nbsp; No sign-up needed</small></div>
+        </div>
+        <a class="feature" href="Games/2048/index.html" aria-label="Play 2048">
+          <div class="feature-top"><span><i></i> FEATURED PICK</span><span>↗</span></div>
+          <div class="number-art" aria-hidden="true"><b>2</b><b>0</b><b>4</b><b>8</b></div>
+          <div class="feature-bottom"><div><strong>2048</strong><small>One more move. You know you want to.</small></div><span>Play now →</span></div>
+        </a>
+      </section>
+
+      <section class="library" id="games">
+        <div class="section-head"><div><span class="eyebrow">THE COLLECTION</span><h2>All G4mes <span id="count">15</span></h2></div><p>Something good is a click away.</p></div>
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Filter G4mes">
+            <button class="active" type="button" data-filter="all" aria-pressed="true">All G4mes</button>
+            <button type="button" data-filter="arcade" aria-pressed="false">Arcade</button>
+            <button type="button" data-filter="puzzle" aria-pressed="false">Puzzle</button>
+            <button type="button" data-filter="clicker" aria-pressed="false">Clicker</button>
+            <button type="button" data-filter="other" aria-pressed="false">More</button>
+          </div>
+          <label class="search"><span aria-hidden="true">⌕</span><span class="sr-only">Search G4mes</span><input id="search" type="search" placeholder="Search G4mes..." autocomplete="off"></label>
+        </div>
+        <div class="grid" id="grid">
+          <a class="game" data-category="puzzle" data-name="2048" href="Games/2048/index.html"><div class="art art-2048"><img src="Assets/Game%20Icons/2048.png" alt="" loading="lazy"></div><div class="game-label"><div><strong>2048</strong><small>Puzzle</small></div><span>↗</span></div></a>
+          <a class="game" data-category="arcade" data-name="Chrome Dino" href="Games/Chrome%20Dino%20Game/index.html"><div class="art art-dino"><img src="Assets/Game%20Icons/chrome-dino.png" alt="" loading="lazy"></div><div class="game-label"><div><strong>Chrome Dino</strong><small>Arcade</small></div><span>↗</span></div></a>
+          <a class="game" data-category="clicker" data-name="Cookie Clicker" href="Games/Cookie%20Clicker%202.054/Cookie%20Clicker/index.html"><div class="art art-cookie"><img src="Assets/Game%20Icons/cookie-clicker.png" alt="" loading="lazy"></div><div class="game-label"><div><strong>Cookie Clicker</strong><small>Clicker</small></div><span>↗</span></div></a>
+          <a class="game" data-category="arcade" data-name="Doodle Jump" href="Games/Doodle%20Jump/index.html"><div class="art art-doodle"><img src="Assets/Game%20Icons/doodle-jump.png" alt="" loading="lazy"></div><div class="game-label"><div><strong>Doodle Jump</strong><small>Arcade</small></div><span>↗</span></div></a>
+          <a class="game" data-category="arcade" data-name="Worlds Hardest Game" href="Games/Worlds%20Hardest%20Game/index.html"><div class="art art-hardest"><img src="Assets/Game%20Icons/worlds-hardest-game.jpg" alt="" loading="lazy"></div><div class="game-label"><div><strong>World's Hardest G4me</strong><small>Arcade</small></div><span>↗</span></div></a>
+          <a class="game" data-category="clicker" data-name="Doge Miner" href="Games/Doge%20Miner/index.html"><div class="art art-doge"><img src="Assets/Game%20Icons/doge-miner.png" alt="" loading="lazy"></div><div class="game-label"><div><strong>Doge Miner</strong><small>Clicker</small></div><span>↗</span></div></a>
+          <a class="game" data-category="puzzle" data-name="Wordle" href="Games/Wordle/index.html"><div class="art art-wordle"><img src="Assets/Game%20Icons/wordle.svg" alt="" loading="lazy"></div><div class="game-label"><div><strong>Wordle</strong><small>Puzzle</small></div><span>↗</span></div></a>
+          <a class="game" data-category="arcade" data-name="Tetris" href="Games/Tetris/index.html"><div class="art art-tetris"><img src="Assets/Game%20Icons/tetris.svg" alt="" loading="lazy"></div><div class="game-label"><div><strong>Tetris</strong><small>Arcade</small></div><span>↗</span></div></a>
+          <a class="game" data-category="other" data-name="Solitaire" href="Games/Solitaire/index.html"><div class="art art-solitaire"><img src="Assets/Game%20Icons/solitaire.svg" alt="" loading="lazy"></div><div class="game-label"><div><strong>Solitaire</strong><small>Cards</small></div><span>↗</span></div></a>
+          <a class="game" data-category="arcade" data-name="Pong" href="Games/Pong/Pong.html"><div class="art art-pong"><img src="Assets/Game%20Icons/pong.svg" alt="" loading="lazy"></div><div class="game-label"><div><strong>Pong</strong><small>Arcade</small></div><span>↗</span></div></a>
+          <a class="game" data-category="other" data-name="Connect 4" href="Games/Connect%204/connect4.html"><div class="art art-connect"><img src="Assets/Game%20Icons/connect-4.svg" alt="" loading="lazy"></div><div class="game-label"><div><strong>Connect 4</strong><small>Strategy</small></div><span>↗</span></div></a>
+          <a class="game" data-category="clicker" data-name="CSGO Clicker" href="Games/CSGO%20Clicker/index.html"><div class="art art-csgo"><img src="Assets/Game%20Icons/csgo-clicker.png" alt="" loading="lazy"></div><div class="game-label"><div><strong>CSGO Clicker</strong><small>Clicker</small></div><span>↗</span></div></a>
+          <a class="game" data-category="puzzle" data-name="9007199254740992" href="Games/9007199254740992/index.html"><div class="art art-number"><img src="Assets/Game%20Icons/9007199254740992.svg" alt="" loading="lazy"></div><div class="game-label"><div><strong>9007199254740992</strong><small>Puzzle</small></div><span>↗</span></div></a>
+          <a class="game" data-category="other" data-name="You Are Jeff Bezos" href="Games/You%20Are%20Jeff%20Bezos/index.html"><div class="art art-bezos"><img src="Assets/Game%20Icons/you-are-jeff-bezos.svg" alt="" loading="lazy"></div><div class="game-label"><div><strong>You Are Jeff Bezos</strong><small>Story</small></div><span>↗</span></div></a>
+          <a class="game" data-category="other" data-name="XX142-B2.exe" href="Games/XX142-B2.exe/index.html"><div class="art art-xx"><img src="Assets/Game%20Icons/xx142-b2.png" alt="" loading="lazy"></div><div class="game-label"><div><strong>XX142-B2.exe</strong><small>Adventure</small></div><span>↗</span></div></a>
+        </div>
+        <p id="empty" hidden>No G4mes found. Try another search.</p>
+      </section>
+    </main>
+    <footer id="about"><a class="brand" href="index.html"><img class="brand-icon" src="Assets/Logo%20Icons/Cyberia%20Blue.png" alt=""><span>CYBERIA<span class="brand-dot">.</span></span></a><p>A simple place to play. Made for the fun of it.</p><a href="#">Back to top ↑</a></footer>
+  </div>
+</body>
+</html>
